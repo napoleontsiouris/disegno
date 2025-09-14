@@ -66,7 +66,7 @@ const HeaderDiv = ({ t }) => {
                                         <Image
                                             style={{ objectFit: "cover", 'width': '100%' }}
                                             className="img-fluid rounded w-100 startHomeImg"
-                                            src="/logo.png"
+                                            src="/logo.jpg"
                                             alt="Pdf Icon"
                                             // width='100'
                                             fill

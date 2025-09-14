@@ -35,7 +35,7 @@ const AboutHome = ({ projects }) => {
                                     <Image
                                         style={{ objectFit: "cover", 'width': '100%' }}
                                         className="img-fluid rounded w-100 startHomeImg"
-                                        src="/img/profile.jpg"
+                                        src="/img/1000002795.jpg"
                                         alt="designo"
                                         // width='100'
                                         fill

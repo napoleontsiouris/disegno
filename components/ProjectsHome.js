@@ -20,15 +20,15 @@ const projects = [
             main_photo: {
                 data: {
                     attributes: {
-                        url: "/img/elefthero.jpg", // replace with a local image in your public folder
+                        url: "/img/1000002787.jpg", // replace with a local image in your public folder
                     },
                 },
             },
             gallery:[
-                { url: "/img/elefthero1.jpg" },
-                { url: "/img/elefthero2.jpg" },
-                { url: "/img/elefthero3.jpg" },
-                { url: "/img/elefthero4.jpg" },
+                { url: "/img/1000002791.jpg" },
+                { url: "/img/1000002798.jpg" },
+                { url: "/img/1000002797.jpg" },
+                { url: "/img/1000002786.jpg" },
             ]
         },
     },
@@ -43,15 +43,16 @@ const projects = [
             main_photo: {
                 data: {
                     attributes: {
-                        url: "/img/grammiko.jpg", // replace with a local image in your public folder
+                        url: "/img/1000002784.jpg", // replace with a local image in your public folder
                     },
                 },
             },
             gallery:[
-                { url: "/img/grammiko1.jpg" },
+                
                 { url: "/img/grammiko2.jpg" },
                 { url: "/img/grammiko3.jpg" },
                 { url: "/img/grammiko4.jpg" },
+                { url: "/img/1000002794.jpg" },
             ]
             
         },
