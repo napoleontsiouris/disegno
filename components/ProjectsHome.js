@@ -65,7 +65,6 @@ const ProjectsHome = () => {
     return (
         <React.Fragment>
             <div id="tmimata" className="container-fluid blog ">
-                
 
                     <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px', visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }} >
                         

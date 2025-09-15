@@ -1656,8 +1656,7 @@ i.fa-cooperate::before {
   height: var(--swiper-navigation-size);
   z-index: 10;
   cursor: pointer;
-  display: flex
-;
+  display: flex;
   background: #0000003c;
   align-items: center;
   justify-content: center;

@@ -6,6 +6,8 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import "../assets/css/bootstrap.css"
 import "../assets/css/style.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import "../assets/css/font-awesome.min.css"
 // import 'bootstrap/dist/css/bootstrap.css'
@@ -25,6 +27,10 @@ const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle");
   }, [])
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
 
   return (
     <>

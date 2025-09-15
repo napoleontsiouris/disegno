@@ -10,6 +10,8 @@ const propTypes = {};
 const defaultProps = {};
 
 const Carousel = ({ t }) => {
+    const title = "DISEGNO";
+    const subtitle = "Φροντιστήριο Σχεδίου";
     return (
         <React.Fragment>
             <div className="container-fluid p-0">
@@ -19,42 +21,23 @@ const Carousel = ({ t }) => {
                             <img className="img-height-fluid img-fluid width100" src="img/heroBanner.jpg" alt="Image" />
                             <div className="carousel-caption d-flex">
                                 <div className="p-5 carousel-text-container" style={{ width: '100%', maxWidth: '1200px' }}>
-                                    <h1 className=" text-white ">DISEGNO
-                                    </h1>
-                                    <h2 className="text-white mb-md-4">Φροντιστήριο Σχεδίου
-                                    </h2>
+                                <h1 className="text-white text-5xl font-bold flex gap-1">
+                                    {title.split("").map((char, index) => (
+                                    <span
+                                        key={index}
+                                        data-aos="fade-right"
+                                        data-aos-delay={index * 300} // stagger delay
+                                        className="inline-block"
+                                    >
+                                        {char}
+                                    </span>
+                                    ))}
+                                </h1>
 
-                                    {/* <h1 className="display-1 text-white mb-md-4">
-                                        <Typewriter
-                                            onInit={(typewriter) => {
-                                                typewriter
-                                                    .typeString('DESIGNO')
-                                                    .pauseFor(500)
-                                                    .callFunction(() => {
-                                                        // optionally trigger something when first text ends
-                                                    })
-                                                    .start();
-                                            }}
-                                            options={{
-                                                delay: 100,
-                                            }}
-                                        />
-                                    </h1> */}
-                                    {/* <h2 className="text-white mb-md-4">
-                                        <Typewriter
-                                            onInit={(typewriter) => {
-                                                setTimeout(() => {
-                                                    typewriter
-                                                        .typeString('Φροντιστήριο Σχεδίου')
-                                                        .start();
-                                                }, 1500); // delay to start after first one finishes
-                                            }}
-                                            options={{
-                                                delay: 100,
-                                            }}
-                                        />
-                                    </h2> */}
-
+                                {/* Subtitle with per-letter animation */}
+                                <h2 className="text-white text-2xl mt-2 flex flex-wrap gap-1">{subtitle}
+                                    
+                                </h2>
                                 </div>
                             </div>
                         </div>

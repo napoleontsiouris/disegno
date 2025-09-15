@@ -5,16 +5,16 @@ const ProjectCard = ({inlineClass, project}) => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     // console.log('API_URL', API_URL)
     return (
-        <div key={project.id} className={inlineClass} data-wow-delay="0.2s" style={{ visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp', marginTop:0}} >
+        <div  key={project.id} className={inlineClass}  style={{ visibility: 'visible',  marginTop:0}} >
             <div className="blog-item">
                 <div className="row">
-                    <div className="col-md-6 col-lg-6 col-xl-6 no-padding">
+                    <div data-aos="fade-up" className="col-md-6 col-lg-6 col-xl-6 no-padding">
                         <div className="blog-img">
                             <img src={`${project.attributes.main_photo.data.attributes.url}`} className="img-fluid w-100" alt="" />
                         
                         </div>
                     </div>
-                    <div className="col-md-6 col-lg-6 col-xl-6 align-self-center">
+                    <div data-aos="fade-up" data-aos-delay={400} className="col-md-6 col-lg-6 col-xl-6 align-self-center">
                         <div className="blog-content rounded-bottom p-4">
                             <Link className="h4 d-inline-block mb-3" href={`/projects/${project.attributes.slug}`}>
                                 {project.attributes.title}
@@ -29,7 +29,7 @@ const ProjectCard = ({inlineClass, project}) => {
                         { project.attributes.gallery.map((image, index) => {
                             // console.log('image', image)
                             return (
-                            <div key={index} className="col-md-3 col-lg-3 col-xl-3 no-padding">
+                            <div data-aos="fade-up"  data-aos-delay={index * 200}   key={index} className="col-md-3 col-lg-3 col-xl-3 no-padding">
                                 <img src={`${image.url}`} className="img-fluid w-100 project-gallery-img" alt="" />
                             </div>
                             )
