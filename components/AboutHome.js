@@ -18,7 +18,7 @@ const AboutHome = ({ projects }) => {
                     </div> */}
                     <div className="row g-4">
                         
-                        <div data-aos="fade-up" data-aos-delay={400} className='col-md-6 col-lg-6 col-xl-6'>
+                        <div data-aos="fade-right" data-aos-delay={400} className='col-md-6 col-lg-6 col-xl-6'>
                             <div className='about-description px-4'>
                                 <h2 className='mb-4'>Λίγα λόγια</h2>
                                 <p class="mb-4">Το νέο Εργαστήριο Καλών Τεχνών άνοιξε φέτος για πρώτη φορά και προσκαλεί μικρούς και μεγάλους να ανακαλύψουν τη χαρά της δημιουργίας. Σε έναν φωτεινό και ζεστό χώρο, οι συμμετέχοντες έχουν την ευκαιρία να εκφραστούν μέσα από ζωγραφική, γλυπτική και άλλες μορφές τέχνης.</p>
@@ -29,7 +29,7 @@ const AboutHome = ({ projects }) => {
                                 </p>
                             </div>
                         </div>
-                        <div data-aos="fade-up" data-aos-delay={800} className='col-md-6 col-lg-6 col-xl-6' >
+                        <div data-aos="fade-left" data-aos-delay={800} className='col-md-6 col-lg-6 col-xl-6' >
                             <div className="row g-4">
                                 <div className="col-md-12 col-lg-12 col-xl-12 wow fadeInUp" data-wow-delay="0.2s" style={{ visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }}>
                                     <Image

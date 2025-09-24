@@ -46,12 +46,25 @@ html {
 }
 
 .mySwiper .swiper-wrapper {
-  height: 90vh;
+  height: 60vh;
 }
 
 .mySwiper .swiper-slide 
 {
   height: 100%;
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* desktop 3 columns */
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .custom-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    grid-auto-flow: column; /* stack items column by column */
+  }
 }
 
 .mySwiper .swiper-slide img
@@ -1668,6 +1681,49 @@ i.fa-cooperate::before {
   svg {
     height: 22px!important;
     width: 22px!important;
+}
+
+
+.cell {
+  height: 45vh; /* equal height for all cells */
+  /* border: 2px solid #333; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  flex-direction: column;
+  color: white;
+  padding:30px;
+}
+.cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.cell h3 {
+  color:white;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.cell p {
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.yellow {
+  background-color: #bb7816;
+}
+
+.blue {
+  background-color: #262261;
+}
+
+.red {
+  background-color: #ee4036;
 }
 
 /*** copyright end ***/

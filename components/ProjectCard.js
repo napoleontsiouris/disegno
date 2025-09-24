@@ -8,13 +8,13 @@ const ProjectCard = ({inlineClass, project}) => {
         <div  key={project.id} className={inlineClass}  style={{ visibility: 'visible',  marginTop:0}} >
             <div className="blog-item">
                 <div className="row">
-                    <div data-aos="fade-up" className="col-md-6 col-lg-6 col-xl-6 no-padding">
+                    <div data-aos="fade-right" className="col-md-6 col-lg-6 col-xl-6 no-padding">
                         <div className="blog-img">
                             <img src={`${project.attributes.main_photo.data.attributes.url}`} className="img-fluid w-100" alt="" />
                         
                         </div>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay={400} className="col-md-6 col-lg-6 col-xl-6 align-self-center">
+                    <div data-aos="fade-left" data-aos-delay={400} className="col-md-6 col-lg-6 col-xl-6 align-self-center">
                         <div className="blog-content rounded-bottom p-4">
                             <Link className="h4 d-inline-block mb-3" href={`/projects/${project.attributes.slug}`}>
                                 {project.attributes.title}

@@ -19,9 +19,9 @@ const Contact = () => {
                                     <div className='col-md-6'>
                                         <div className='contact-info-right'>
                                             <ul>
-                                                <li><i className="fa fa-map-marker"></i>Αμαλιάδα</li>
-                                                <li><i className="fa fa-phone"></i> Τηλέφωνο: <a href="tel:+302106500123">+30 212345533</a></li>
-                                                <li><i className="fa fa-envelope"></i> Email: <a href="mailto: ">dsa</a></li>
+                                                <li><i className="fa fa-map-marker"></i>Κουρογιαννοπούλου 37, Αμαλιάδα</li>
+                                                {/* <li><i className="fa fa-phone"></i> Τηλέφωνο: <a href="tel:+302106500123">+30 212345533</a></li> */}
+                                                <li><i className="fa fa-envelope"></i> <a href="mailto:frontistirio_disegno@outlook.com"> frontistirio_disegno@outlook.com</a></li>
                                             </ul>
                                             <div className="social-links">
                                             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
