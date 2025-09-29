@@ -7,14 +7,14 @@ const ProjectCard = ({inlineClass, project}) => {
     return (
         <div  key={project.id} className={inlineClass}  style={{ visibility: 'visible',  marginTop:0}} >
             <div className="blog-item">
-                <div className="row">
-                    <div data-aos="fade-right" className="col-md-6 col-lg-6 col-xl-6 no-padding">
+                <div className="row" style={{ position:'relative' }}>
+                    <div data-aos="fade-right" className="col-xs-12 col-md-6 col-lg-6 col-xl-6 no-padding">
                         <div className="blog-img">
                             <img src={`${project.attributes.main_photo.data.attributes.url}`} className="img-fluid w-100" alt="" />
                         
                         </div>
                     </div>
-                    <div data-aos="fade-left" data-aos-delay={400} className="col-md-6 col-lg-6 col-xl-6 align-self-center">
+                    <div data-aos="fade-left" data-aos-delay={400} className="col-xs-12 col-md-5 col-lg-5 col-xl-5 align-self-center">
                         <div className="blog-content rounded-bottom p-4">
                             <Link className="h4 d-inline-block mb-3" href={`/projects/${project.attributes.slug}`}>
                                 {project.attributes.title}
@@ -22,14 +22,17 @@ const ProjectCard = ({inlineClass, project}) => {
                             {/* <a href="#" className="h4 d-inline-block mb-3">{project.attributes.title}</a> */}
                             <div  dangerouslySetInnerHTML={{ __html: project.attributes.description }} ></div> 
                         </div>
+                        
                     </div>
+                    <div className="disegno">Disegno</div>
                 </div>
+               
                 { project.attributes.gallery && project.attributes.gallery.length > 0 &&
                     <div className="row">
                         { project.attributes.gallery.map((image, index) => {
                             // console.log('image', image)
                             return (
-                            <div data-aos="fade-up"  data-aos-delay={index * 200}   key={index} className="col-md-3 col-lg-3 col-xl-3 no-padding">
+                            <div data-aos="fade-up"  data-aos-delay={index * 200}   key={index} className="col-md-3 col-lg-3 col-xl-3">
                                 <img src={`${image.url}`} className="img-fluid w-100 project-gallery-img" alt="" />
                             </div>
                             )

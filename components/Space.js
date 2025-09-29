@@ -19,7 +19,7 @@ export default function Space() {
             <div className="row">
                 {/* Left column with Swiper */}
                 
-                <div className="col-md-12 col-lg-12 col-xl-12 no-padding">
+                <div className="col-md-12 col-lg-12 col-xl-12">
                 <Swiper
                     modules={[Navigation, Pagination]}
                     navigation

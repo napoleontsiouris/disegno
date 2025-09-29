@@ -11,13 +11,14 @@ html {
 }
 
 .header.fixed {
-  position:fixed;
+  position: fixed;
   background: #161616;
 }
 
 .header.fixed .main_header .logo img {
   width: 80px !important;
 }
+
 .main_header {
   display: flex;
   align-items: center;
@@ -37,10 +38,16 @@ html {
 }
 
 .blog-content {
-  position: relative;
+  /* position: relative; */
+  padding-right: 74px !important;
 }
 
-.blog-content .xwros_absolute_img {
+.blog-content.odd-project {
+  padding-left: 74px !important;
+  padding-right: 1.5rem;
+}
+
+.blog-content .blog-content .xwros_absolute_img {
   position: absolute;
   top: 20px;
 }
@@ -49,32 +56,33 @@ html {
   height: 60vh;
 }
 
-.mySwiper .swiper-slide 
-{
+.mySwiper .swiper-slide {
   height: 100%;
 }
 
 .custom-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* desktop 3 columns */
+  grid-template-columns: repeat(3, 1fr);
+  /* desktop 3 columns */
   gap: 1rem;
 }
 
 @media (max-width: 768px) {
   .custom-grid {
-    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
-    grid-auto-flow: column; /* stack items column by column */
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns on mobile */
+    grid-auto-flow: column;
+    /* stack items column by column */
   }
 }
 
-.mySwiper .swiper-slide img
-{
+.mySwiper .swiper-slide img {
   height: 100%;
   object-fit: cover;
 }
 
 /* CSS */
-.photo-wrap{
+.photo-wrap {
   position: relative;
   display: inline-block;
   max-width: 100%;
@@ -83,7 +91,7 @@ html {
 }
 
 /* base photo */
-.photo{
+.photo {
   display: block;
   width: 100%;
   height: auto;
@@ -91,77 +99,94 @@ html {
 }
 
 /* the glow / spotlight coming from the lamp */
-.light{
+.light {
   position: absolute;
-  top: -10%;               /* move the light origin slightly above the top edge */
+  top: -10%;
+  /* move the light origin slightly above the top edge */
   left: 50%;
   transform: translateX(-50%);
-  pointer-events: none;    /* clicks pass through */
-  width: 240%;             /* wide so light fades naturally to sides */
-  height: 55%;             /* adjust vertical spread */
-  z-index: 2;              /* between photo (z:1) and lamp (z:3) */
+  pointer-events: none;
+  /* clicks pass through */
+  width: 240%;
+  /* wide so light fades naturally to sides */
+  height: 55%;
+  /* adjust vertical spread */
+  z-index: 2;
+  /* between photo (z:1) and lamp (z:3) */
   /* create the soft spotlight */
   background:
-    radial-gradient(
-      ellipse at 50% 10%,
+    radial-gradient(ellipse at 50% 10%,
       rgba(255, 245, 200, 0.95) 0%,
       rgba(255, 240, 170, 0.7) 12%,
       rgba(255, 220, 120, 0.25) 30%,
-      rgba(0,0,0,0) 65%
-    );
+      rgba(0, 0, 0, 0) 65%);
   filter: blur(30px) contrast(1.02);
-  mix-blend-mode: screen;  /* brightens image under the light */
+  mix-blend-mode: screen;
+  /* brightens image under the light */
   transform-origin: top center;
 }
 
 /* lamp graphic that sits above everything */
-.lamp{
+.lamp {
   position: absolute;
-  top: -40px;              /* how far the lamp hangs above the image */
+  top: -40px;
+  /* how far the lamp hangs above the image */
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;            /* scale to taste */
+  width: 120px;
+  /* scale to taste */
   height: auto;
   z-index: 3;
   pointer-events: none;
-  filter: drop-shadow(0 12px 16px rgba(0,0,0,0.45));
+  filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.45));
   transform-origin: top center;
 }
 
 /* optional: subtle swinging animation for realism */
 @keyframes swing {
-  0%   { transform: translateX(-50%) rotate(-6deg); }
-  50%  { transform: translateX(-50%) rotate(6deg); }
-  100% { transform: translateX(-50%) rotate(-6deg); }
+  0% {
+    transform: translateX(-50%) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(6deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(-6deg);
+  }
 }
-.lamp.swing { animation: swing 3.2s ease-in-out infinite; }
+
+.lamp.swing {
+  animation: swing 3.2s ease-in-out infinite;
+}
 
 .contact-container {
   background: url(/img/contactBg.jpg);
   /* padding: 100px 0; */
-  height: 85vh;  
+  height: 85vh;
   background-position: center top;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 
-.contact-container .contact-box{
+.contact-container .contact-box {
   background: rgba(255, 255, 255, 0.8);
   padding: 70px 60px;
   border-radius: 10px;
-  color:#292929;
+  color: #292929;
 }
 
-.contact-container .contact-box h2{
+.contact-container .contact-box h2 {
   font-size: 36px;
   font-weight: 700;
   color: #292929;
 }
 
 
-.contact-container .contact-box .contact-info{
+.contact-container .contact-box .contact-info {
   /* margin-top: 20px; */
   text-align: left;
 }
@@ -182,7 +207,7 @@ html {
   font-size: 1rem;
   line-height: 1.6;
   color: #555;
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 .contact-container .contact-box ul {
@@ -449,6 +474,13 @@ img.pdf-icon {
   height: 100%;
   position: relative;
   max-height: 100%;
+}
+
+#header-carousel .carousel-item .img-fluid {
+  max-width: 100%;
+  height: 100%;
+  /* width: 100%; */
+  object-fit: cover;
 }
 
 .carousel {
@@ -1333,6 +1365,28 @@ img.pdf-icon {
   border-radius: 10px;
   background: var(--bs-light);
   transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog .blog-item .disegno {
+  position: absolute;
+  top: -132px;
+  right: -103px;
+  transform: rotate(270deg);
+  font-size: 157px;
+  color: #cfcfcf;
+  width: auto;
+  /* right: 100%; */
+  transform-origin: bottom right;
+}
+
+
+.blog .odd-project .blog-item .disegno {
+  left: -103px;
+  right: unset;
+  transform: rotate(90deg);
+  transform-origin: bottom left;
 }
 
 .no-padding {
@@ -1663,7 +1717,8 @@ i.fa-cooperate::before {
   background: var(--bs-dark);
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   position: absolute;
   width: var(--swiper-navigation-size);
   height: var(--swiper-navigation-size);
@@ -1677,15 +1732,16 @@ i.fa-cooperate::before {
   background: #ffffffbf;
 }
 
-.swiper-button-prev  svg, .swiper-button-next 
-  svg {
-    height: 22px!important;
-    width: 22px!important;
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  height: 22px !important;
+  width: 22px !important;
 }
 
 
 .cell {
-  height: 45vh; /* equal height for all cells */
+  height: 45vh;
+  /* equal height for all cells */
   /* border: 2px solid #333; */
   display: flex;
   align-items: center;
@@ -1694,8 +1750,9 @@ i.fa-cooperate::before {
   font-size: 1.2rem;
   flex-direction: column;
   color: white;
-  padding:30px;
+  padding: 30px;
 }
+
 .cell img {
   max-width: 100%;
   max-height: 100%;
@@ -1703,7 +1760,7 @@ i.fa-cooperate::before {
 }
 
 .cell h3 {
-  color:white;
+  color: white;
   font-size: 24px;
   font-weight: 900;
 }
@@ -1734,6 +1791,39 @@ i.fa-cooperate::before {
     object-fit: cover;
   }
 
+  .blog .blog-item .disegno {
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    transform: unset;
+    font-size: 75px;
+    color: #cfcfcf;
+    width: auto;
+    right: unset;
+    transform-origin: unset;
+    top: unset;
+  }
+
+  .blog .odd-project .blog-item .disegno {
+    left: 0;
+    right: unset;
+    transform: unset;
+    bottom: -19px;
+    transform-origin: unset;
+    top: unset;
+  }
+
+  #header-carousel {
+    height: auto;
+    height: 67vh;
+    overflow: hidden;
+  }
+
+  .blog-content {
+    position: relative;
+    padding: 90px 1.5rem !important;
+  }
+
   .mySwiper .swiper-wrapper {
     height: 41vh;
   }
@@ -1743,18 +1833,24 @@ i.fa-cooperate::before {
     font-weight: 900;
   }
 
+  .cell {
+    border-radius: 12px;
+  }
+
   #header-carousel .carousel-caption h2 {
     font-size: 27px;
     font-weight: 500;
   }
 
-  .main_header  {
+  .main_header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     align-items: flex-start;
   }
+
+
 
   .project-gallery-img {
     height: auto !important;
@@ -1776,19 +1872,23 @@ i.fa-cooperate::before {
   .header.fixed {
     /* display:none; */
   }
+
   .navbar-nav {
     background: unset;
   }
+
   .header.fixed .navbar-nav {
     background: #161616d9;
     padding: 10px;
     border-radius: 5px;
   }
+
   #header-carousel .carousel-text-container {
-    padding:10px!important;
+    padding: 10px !important;
   }
 
-  .navbar-light .navbar-nav .nav-link, .sticky-top.navbar-light .navbar-nav .nav-link {
+  .navbar-light .navbar-nav .nav-link,
+  .sticky-top.navbar-light .navbar-nav .nav-link {
     color: white;
   }
 
@@ -1842,5 +1942,20 @@ i.fa-cooperate::before {
 
   .page-header .display-4 {
     font-size: 29px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container .contact-box ul li i {
+    /* display: none; */
+    flex: 1;
+    text-align: left;
+  }
+
+  .contact-container .contact-box ul li {
+    font-size: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: left;
   }
 }
