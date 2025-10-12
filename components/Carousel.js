@@ -50,9 +50,9 @@ const Carousel = ({ banner, t }) => {
                                 </h1>
 
                                 {/* Subtitle with per-letter animation */}
-                                <h2 className="text-white text-2xl mt-2 flex flex-wrap gap-1">{subtitle}
-                                    
-                                </h2>
+                                    <h2 className="text-white text-2xl mt-2 flex flex-wrap gap-1">{subtitle}
+                                        
+                                    </h2>
                                 </div>
                             </div>
                         </div>
