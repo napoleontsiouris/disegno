@@ -17,7 +17,7 @@ import Contact from "../components/Contact";
 
 
 
-const Home = ({  }) => {
+const Home = ({ banner }) => {
   // console.log('project_current', project_current)
   //('products', products)
   
@@ -36,7 +36,7 @@ const Home = ({  }) => {
          
 
         </Head>
-        <Carousel />
+        <Carousel banner={banner} />
         {/* <InfoHome /> */}
         <AboutHome />
         {/* <PortfolioHome projects={projects} /> */}
@@ -57,8 +57,14 @@ const Home = ({  }) => {
 
 export async function getStaticProps(context) {
   // Run API calls in parallel
- 
-
+  const banner = await fetchAPI("/banners", {
+    filters: {
+      slug: 'main_banner',
+    },
+    populate: ['slides'],
+    // locale: locales[locale]
+  });
+  // console.log('banner', banner)
   
 
  
@@ -66,7 +72,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      // projects: projects.data,
+      banner: banner.data,
       // project_current: projects_current.data[0]
       // ...(await serverSideTranslations(locale, ['common'])),
     },

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const ProjectCard = ({inlineClass, project}) => {
-    console.log('project', project)
+    // console.log('project', project)
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     // console.log('API_URL', API_URL)
     return (

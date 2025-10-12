@@ -12,7 +12,7 @@ module.exports = {
   },
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", 'disegno.ovh'],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
