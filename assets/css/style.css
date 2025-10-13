@@ -162,7 +162,7 @@ html {
 }
 
 .contact-container {
-  background: url(/img/contactBg.jpg);
+  /* background: url(/img/contactBg.jpg); */
   /* padding: 100px 0; */
   height: 85vh;
   background-position: center top;

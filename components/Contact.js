@@ -1,8 +1,9 @@
 import React from 'react'
-const Contact = () => {
+const Contact = ({contact}) => {
+    // console.log('contact', contact)
     return (
         <React.Fragment>
-            <div id="contact" className="container-fluid contact-container">
+            <div id="contact" className="container-fluid contact-container" style={{backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL}${contact.image.url})`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '100px 0', height: '85vh'}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 text-center">

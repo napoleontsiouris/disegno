@@ -17,7 +17,7 @@ import Contact from "../components/Contact";
 
 
 
-const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, facility }) => {
+const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, facility, contact }) => {
   // console.log('sectionsNonPanellinies', sectionsNonPanellinies)
   // console.log('project_current', project_current)
   //('products', products)
@@ -46,7 +46,7 @@ const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, fa
         <ProjectsHome sectionsPanellinies={sectionsPanellinies} sectionsNonPanellinies={sectionsNonPanellinies} />
 
         <Space facility={facility} />
-        <Contact />
+        <Contact contact={contact} />
         
        
         {/*<TestimonialHome />
@@ -71,6 +71,9 @@ export async function getStaticProps(context) {
 
   const facility = await fetchAPI("/facility", {
     populate: ['photos'],
+  });
+  const contact = await fetchAPI("/contact", {
+    populate: ['image'],
   });
 
   const sectionsMain = await fetchAPI("/sections", {
@@ -102,7 +105,8 @@ export async function getStaticProps(context) {
       profile: profile.data,
       sectionsPanellinies: sectionsMain.data,
       sectionsNonPanellinies: sectionsNonPanellinies1,
-      facility: facility.data
+      facility: facility.data,
+      contact: contact.data
       // ...(await serverSideTranslations(locale, ['common'])),
     },
     revalidate: 1, // In seconds
