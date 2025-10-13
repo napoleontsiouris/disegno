@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function Space({facility}) {
-    console.log('facility', facility)
+    // console.log('facility', facility)
     
   return (
     <div id="xwros" className="container-fluid blog">
