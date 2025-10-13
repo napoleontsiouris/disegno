@@ -17,7 +17,8 @@ import Contact from "../components/Contact";
 
 
 
-const Home = ({ banner }) => {
+const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, facility }) => {
+  // console.log('sectionsNonPanellinies', sectionsNonPanellinies)
   // console.log('project_current', project_current)
   //('products', products)
   
@@ -38,13 +39,13 @@ const Home = ({ banner }) => {
         </Head>
         <Carousel banner={banner} />
         {/* <InfoHome /> */}
-        <AboutHome />
+        <AboutHome profile={profile} />
         {/* <PortfolioHome projects={projects} /> */}
 
         {/* <StartHome /> */}
-        <ProjectsHome  />
+        <ProjectsHome sectionsPanellinies={sectionsPanellinies} sectionsNonPanellinies={sectionsNonPanellinies} />
 
-        <Space />
+        <Space facility={facility} />
         <Contact />
         
        
@@ -62,18 +63,46 @@ export async function getStaticProps(context) {
       slug: 'main_banner',
     },
     populate: ['slides'],
-    // locale: locales[locale]
   });
-  // console.log('banner', banner)
-  
 
- 
+  const profile = await fetchAPI("/profile", {
+    populate: ['image'],
+  });
 
+  const facility = await fetchAPI("/facility", {
+    populate: ['photos'],
+  });
+
+  const sectionsMain = await fetchAPI("/sections", {
+    filters: {
+      section_categories: {
+        slug: 'panellinies'
+      },
+    },
+    populate: ['image','gallery', 'section_categories'],
+  });
+
+
+
+  const sections = await fetchAPI("/sections", {
+    populate: ['image','gallery', 'section_categories'],
+    sort: ['ordering:asc']
+  });
+
+
+  const sectionsNonPanellinies1 = sections.data.filter(
+    section => !section.section_categories.some(
+      cat => cat.slug === 'panellinies'
+    )
+  );
 
   return {
     props: {
       banner: banner.data,
-      // project_current: projects_current.data[0]
+      profile: profile.data,
+      sectionsPanellinies: sectionsMain.data,
+      sectionsNonPanellinies: sectionsNonPanellinies1,
+      facility: facility.data
       // ...(await serverSideTranslations(locale, ['common'])),
     },
     revalidate: 1, // In seconds

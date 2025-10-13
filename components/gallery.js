@@ -6,7 +6,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css"; // Import Lightbox styles
 
 const Gallery = ({ photos }) => {
-	console.log('photos', photos)
+	// console.log('photos', photos)
 	const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
 

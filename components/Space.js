@@ -5,13 +5,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function Space() {
-    const description = `<h4>Ο χώρος μας</h4><p>Στο φροντιστήριο σχεδίου Disegno, ο χώρος μας έχει σχεδιαστεί με γνώμονα την άνεση και τη δημιουργικότητα των μαθητών μας. Βρίσκεται σε μια ήσυχη γειτονιά, προσφέροντας ένα περιβάλλον ιδανικό για συγκέντρωση και έμπνευση.</p>`;
+export default function Space({facility}) {
+    console.log('facility', facility)
+    
   return (
     <div id="xwros" className="container-fluid blog">
         <div className="container text-center pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px', visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }} >
-            <h4 className="text-uppercase text-primary">Ο ΧΩΡΟΣ ΜΑΣ</h4>
-            <h1 className="display-3  mb-3">Ένας χώρος αφιερωμένος στη δημιουργία</h1>
+            <h4 className="text-uppercase text-primary">{facility.overtitle}</h4>
+            <h1 className="display-3  mb-3">{facility.title}</h1>
 
         </div>
         <div className="row g-4 justify-content-center">
@@ -34,69 +35,16 @@ export default function Space() {
                         1024: { slidesPerView: 3 }, // desktops
                     }}
                 >
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002785.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 1"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002786.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 2"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002787.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 3"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002785.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 1"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002786.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 2"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002787.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 3"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002785.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 1"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002786.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 2"
-                    />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <img
-                        src="/img/1000002787.jpg"
-                        className="img-fluid w-100"
-                        alt="slide 3"
-                    />
-                    </SwiperSlide>
+                    {facility.photos && facility.photos.map((photo, index) => (
+                        <SwiperSlide key={index}>
+                            <img
+                                src={`${process.env.NEXT_PUBLIC_API_URL}${photo.url}`}
+                                className="img-fluid w-100"
+                                alt={`slide ${index + 1}`}
+                            />
+                        </SwiperSlide>
+                    ))} 
+                    
                 </Swiper>
                 </div>
 

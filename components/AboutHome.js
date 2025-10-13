@@ -8,7 +8,8 @@ const propTypes = {};
 
 const defaultProps = {};
 
-const AboutHome = ({ projects }) => {
+const AboutHome = ({ profile }) => {
+    // console.log('profile', profile)
     return (
         <React.Fragment>
             <div id="profile" className="container-fluid feature bg-light">
@@ -20,13 +21,10 @@ const AboutHome = ({ projects }) => {
                         
                         <div data-aos="fade-right" data-aos-delay={400} className='col-md-6 col-lg-6 col-xl-6'>
                             <div className='about-description px-4'>
-                                <h2 className='mb-4'>Λίγα λόγια</h2>
-                                <p class="mb-4">Το νέο Εργαστήριο Καλών Τεχνών άνοιξε φέτος για πρώτη φορά και προσκαλεί μικρούς και μεγάλους να ανακαλύψουν τη χαρά της δημιουργίας. Σε έναν φωτεινό και ζεστό χώρο, οι συμμετέχοντες έχουν την ευκαιρία να εκφραστούν μέσα από ζωγραφική, γλυπτική και άλλες μορφές τέχνης.</p>
-
-                                <p class="mb-4">Με καθοδήγηση από έμπειρους καλλιτέχνες, τα μαθήματα και τα σεμινάρια καλύπτουν διαφορετικές τεχνικές και υλικά, προσφέροντας τα εφόδια για προσωπική εξέλιξη και καλλιτεχνική αναζήτηση. Κάθε μάθημα προσαρμόζεται στις ανάγκες και στο επίπεδο των μαθητών.</p>
-
-                                <p class="mb-1">Περισσότερο από σχολή, το εργαστήριο είναι μια δημιουργική κοινότητα. Εκθέσεις, συνεργασίες και ομαδικές δράσεις ενώνουν τους συμμετέχοντες και συμβάλλουν στη διάδοση της τέχνης στην πόλη.
-                                </p>
+                                <h2 className='mb-4'>{profile.title}</h2>
+                                <div dangerouslySetInnerHTML={{ __html: profile.description }}>
+                                    
+                                </div>
                             </div>
                         </div>
                         <div data-aos="fade-left" data-aos-delay={800} className='col-md-6 col-lg-6 col-xl-6' >
@@ -35,7 +33,7 @@ const AboutHome = ({ projects }) => {
                                     <Image
                                         style={{ objectFit: "cover", 'width': '100%' }}
                                         className="img-fluid rounded w-100 startHomeImg"
-                                        src="/img/1000002795.jpg"
+                                        src={  `${process.env.NEXT_PUBLIC_API_URL}${profile.image.url}` }   
                                         alt="designo"
                                         // width='100'
                                         fill

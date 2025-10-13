@@ -12,12 +12,12 @@ const propTypes = {};
 const defaultProps = {};
 
 const Carousel = ({ banner, t }) => {
-    console.log('banner', banner)
+    // console.log('banner', banner)
     const title = banner && banner.length > 0 && banner[0].title ? banner[0].title : "DISEGNO";
     const image = banner && banner.length > 0 && banner[0].image ? banner[0].image : "DISEGNO";
     const subtitle = banner && banner.length > 0 && banner[0].subtitle ? banner[0].subtitle : "Φροντιστήριο Σχεδίου";
     const slide = banner && banner.length > 0 && banner[0].slides && banner[0].slides.length > 0 ? banner[0].slides[0] : null;
-    console.log('slide', slide)
+    // console.log('slide', slide)
     
     return (
         <React.Fragment>
