@@ -25,9 +25,9 @@ const Contact = ({contact}) => {
                                                 <li><i className="fa fa-envelope"></i> <a href="mailto:frontistirio_disegno@outlook.com"> frontistirio_disegno@outlook.com</a></li>
                                             </ul>
                                             <div className="social-links">
-                                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                                            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                                            <a href="https://facebook.com/profile.php?id=61576663653850" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                                            <a href="https://instagram.com/disegno_frontistirio_sxediou" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                            {/* <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a> */}
                                             </div>
                                         </div>
                                     </div>

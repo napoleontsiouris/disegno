@@ -243,8 +243,8 @@ html {
 }
 
 .contact-container .contact-box a:hover {
-  color: #292929;
-  text-decoration: underline;
+  /* color: #292929; */
+  /* text-decoration: underline; */
 }
 
 /* Social Links */
