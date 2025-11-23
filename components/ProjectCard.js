@@ -17,11 +17,11 @@ const ProjectCard = ({inlineClass, project}) => {
                     </div>
                     <div data-aos="fade-left" data-aos-delay={400} className="col-xs-12 col-md-5 col-lg-5 col-xl-5 align-self-center">
                         <div className="blog-content rounded-bottom p-4">
-                            <Link className="h4 d-inline-block mb-3" href={`/projects/${project.slug}`}>
-                                {project.title}
-                            </Link>
+                            {/* <Link className="h4 d-inline-block mb-3" href={`/projects/${project.slug}`}> */}
+                            <h3>{project.title}</h3>
+                            {/* </Link> */}
                             {/* <a href="#" className="h4 d-inline-block mb-3">{project.attributes.title}</a> */}
-                            <div  dangerouslySetInnerHTML={{ __html: project.description }} ></div> 
+                            <div dangerouslySetInnerHTML={{ __html: project.description }} ></div> 
                         </div>
                         
                     </div>

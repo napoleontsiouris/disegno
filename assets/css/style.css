@@ -42,6 +42,10 @@ html {
   padding-right: 74px !important;
 }
 
+.blog-content h3 {
+  margin-bottom: 20px;
+}
+
 .blog-content.odd-project {
   padding-left: 74px !important;
   padding-right: 1.5rem;
@@ -1367,6 +1371,10 @@ img.pdf-icon {
   transition: 0.5s;
   position: relative;
   overflow: hidden;
+}
+
+.blog .blog-item p {
+  line-height: 26px;
 }
 
 .blog .blog-item .disegno {

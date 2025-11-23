@@ -82,6 +82,7 @@ export async function getStaticProps(context) {
         slug: 'panellinies'
       },
     },
+    sort: ['ordering:asc'], 
     populate: ['image','gallery', 'section_categories'],
   });
 
