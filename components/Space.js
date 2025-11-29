@@ -9,7 +9,7 @@ export default function Space({facility}) {
     // console.log('facility', facility)
     
   return (
-    <div id="xwros" style={{overlflowX: 'hidden'}} className="container-fluid blog">
+    <div id="xwros" style={{overflowX: 'hidden'}} className="container-fluid blog">
         <div className="container text-center pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px', visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }} >
             <h4 className="text-uppercase text-primary">{facility.overtitle}</h4>
             <h1 className="display-3  mb-3">{facility.title}</h1>
