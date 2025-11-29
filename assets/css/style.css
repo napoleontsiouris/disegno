@@ -789,10 +789,13 @@ img.pdf-icon {
   transition: .5s;
   opacity: 1;
 }
+#header-carousel .carousel-item .img-fluid.show549 {
+  display: none;  
+}
 
 @media (max-width: 1199.98px) {
   #header-carousel {
-    height: auto;
+    /* height: auto; */
     max-height: 100vh;
     overflow: hidden;
   }
@@ -800,7 +803,7 @@ img.pdf-icon {
 
 @media (max-width: 991.98px) {
   #header-carousel {
-    height: auto;
+    /* height: auto; */
     max-height: 100vh;
     overflow: hidden;
   }
@@ -1794,6 +1797,12 @@ i.fa-cooperate::before {
 /*** copyright end ***/
 
 @media (max-width: 549px) {
+  #header-carousel .carousel-item .img-fluid.show549 {
+    display: block;  
+  }
+  #header-carousel .carousel-item .img-fluid.hide549 {
+    display: none;  
+  }
   .carousel .carousel-inner .carousel-item img {
     height: 70vh;
     object-fit: cover;

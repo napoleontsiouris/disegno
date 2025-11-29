@@ -62,7 +62,7 @@ export async function getStaticProps(context) {
     filters: {
       slug: 'main_banner',
     },
-    populate: ['slides'],
+    populate: ['slides','mobile_slides' ],
   });
 
   const profile = await fetchAPI("/profile", {

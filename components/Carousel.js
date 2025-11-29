@@ -17,6 +17,10 @@ const Carousel = ({ banner, t }) => {
     const image = banner && banner.length > 0 && banner[0].image ? banner[0].image : "DISEGNO";
     const subtitle = banner && banner.length > 0 && banner[0].subtitle ? banner[0].subtitle : "Φροντιστήριο Σχεδίου";
     const slide = banner && banner.length > 0 && banner[0].slides && banner[0].slides.length > 0 ? banner[0].slides[0] : null;
+    console.log('slide', slide)
+    const mobileslide = banner && banner.length > 0 && banner[0].mobile_slides && banner[0].mobile_slides.length > 0 ? banner[0].mobile_slides[0] : null;
+    // console.log('banner', banner)
+    // console.log('mobileslide', mobileslide)
     // console.log('slide', slide)
     
     return (
@@ -28,8 +32,17 @@ const Carousel = ({ banner, t }) => {
                             {/* <img className="img-height-fluid img-fluid width100" src="img/heroBanner.jpg" alt="Image" /> */}
                             <Image
                                 style={{ objectFit: "cover", 'width': '100%' }}
-                                className="img-height-fluid img-fluid width100"
+                                className="img-height-fluid img-fluid width100 hide549"
                                 src={`${process.env.NEXT_PUBLIC_API_URL}${slide.url}`}
+                                alt="designo"
+                                // width='100'
+                                fill
+                            />
+
+                            <Image
+                                style={{ objectFit: "cover", 'width': '100%' }}
+                                className="img-height-fluid img-fluid width100 show549"
+                                src={`${process.env.NEXT_PUBLIC_API_URL}${mobileslide.url}`}
                                 alt="designo"
                                 // width='100'
                                 fill
