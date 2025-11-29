@@ -12,7 +12,7 @@ const AboutHome = ({ profile }) => {
     // console.log('profile', profile)
     return (
         <React.Fragment>
-            <div id="profile" className="container-fluid feature bg-light">
+            <div id="profile" className="container-fluid feature bg-light" style={{overlflowX: 'hidden'}}>
                     {/* <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px', visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }} >
                         <h4 className="text-uppercase text-primary">Η ΝΕΟΛΑΙΑ</h4>
                         <h1 className="display-3  mb-3">Τα χαρακτηριστικά μιας ζωντανής νεολαίας</h1>
