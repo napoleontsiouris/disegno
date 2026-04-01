@@ -12,12 +12,15 @@ const HeaderDiv = ({ t }) => {
     const navbarCollapseRef = useRef(null);
 
     let pageClass;
-    if (router.route.includes('products')) {
-        pageClass = 'products_page';
-    }
-    if (router.route.includes('contact')) {
-        pageClass = 'contact_page';
-    }
+    // if (router.route.includes('products')) {
+    //     pageClass = 'dark_header';
+    // }
+    // if (router.route.includes('contact')) {
+    //     pageClass = 'dark_header';
+    // }
+    // if (router.route.includes('projects')) {
+    //     pageClass = 'dark_header';
+    // }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -56,7 +59,7 @@ const HeaderDiv = ({ t }) => {
                     rel="stylesheet"
                 />
             </Head>
-            <div className={`container-fluid header ${scrollClass}`}>
+            <div className={`container-fluid header ${scrollClass} ${pageClass || ''}`}>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="row d-flex d-lg-flex d-md-flex d-sm-flex">
@@ -102,9 +105,9 @@ const HeaderDiv = ({ t }) => {
                                                         </a>
                                                     </Link>
 
-                                                    <Link legacyBehavior href={'#tmimata'}>
+                                                    <Link legacyBehavior href={'/#tmimata'}>
                                                         <a 
-                                                            className={`nav-item nav-link ${router.route == '#tmimata' ? 'current' : ''}`}
+                                                            className={`nav-item nav-link ${router.route == '/#tmimata' ? 'current' : ''}`}
                                                             onClick={closeNavbar} // Close menu on click
                                                         >
                                                             {t('Τμήματα')}

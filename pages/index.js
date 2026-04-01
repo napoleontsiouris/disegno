@@ -94,7 +94,7 @@ export async function getStaticProps(context) {
   });
 
 
-  const sectionsNonPanellinies1 = sections.data.filter(
+  const sectionsNonPanellinies1 = sections && sections.data.filter(
     section => !section.section_categories.some(
       cat => cat.slug === 'panellinies'
     )
@@ -102,12 +102,12 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      banner: banner.data,
-      profile: profile.data,
-      sectionsPanellinies: sectionsMain.data,
+      banner: banner && banner.data,
+      profile: profile && profile.data,
+      sectionsPanellinies: sectionsMain && sectionsMain.data,
       sectionsNonPanellinies: sectionsNonPanellinies1,
-      facility: facility.data,
-      contact: contact.data
+      facility: facility &&facility.data,
+      contact: contact && contact.data
       // ...(await serverSideTranslations(locale, ['common'])),
     },
     revalidate: 1, // In seconds

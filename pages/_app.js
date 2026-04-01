@@ -6,8 +6,9 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import "../assets/css/bootstrap.css"
 import "../assets/css/style.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 // import "../assets/css/font-awesome.min.css"
 // import 'bootstrap/dist/css/bootstrap.css'
@@ -28,9 +29,7 @@ const MyApp = ({ Component, pageProps }) => {
     import("bootstrap/dist/js/bootstrap.bundle");
   }, [])
 
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
+
 
   return (
     <>
