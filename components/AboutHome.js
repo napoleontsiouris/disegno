@@ -5,6 +5,11 @@ import { withTranslation } from "next-i18next"
 import Image from 'next/image';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { getStrapiMedia } from '../lib/media';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 gsap.registerPlugin(ScrollTrigger);
 
 const propTypes = {};
@@ -12,8 +17,14 @@ const propTypes = {};
 const defaultProps = {};
 
 const AboutHome = ({ profile }) => {
+    console.log('profile', profile)
     const leftRef = useRef(null);
     const rightRef = useRef(null);
+    const profileImages = Array.isArray(profile?.image)
+        ? profile.image
+        : profile?.image
+            ? [profile.image]
+            : [];
 
     useEffect(() => {
         if (leftRef.current) {
@@ -47,14 +58,38 @@ const AboutHome = ({ profile }) => {
                         <div ref={rightRef} className='col-md-6 col-lg-6 col-xl-6' >
                             <div className="row g-4">
                                 <div className="col-md-12 col-lg-12 col-xl-12 wow fadeInUp" data-wow-delay="0.2s" style={{ visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }}>
-                                    <Image
-                                        style={{ objectFit: "cover", 'width': '100%' }}
-                                        className="img-fluid rounded w-100 startHomeImg"
-                                        src={  `${process.env.NEXT_PUBLIC_API_URL}${profile.image.url}` }   
-                                        alt="designo"
-                                        // width='100'
-                                        fill
-                                    />
+                                    {profileImages.length > 0 ? (
+                                        <Swiper
+                                            modules={[Autoplay, Pagination]}
+                                            slidesPerView={1}
+                                            loop={profileImages.length > 1}
+                                            autoplay={{
+                                                delay: 3000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            pagination={{ clickable: true }}
+                                            className="rounded"
+                                        >
+                                            {profileImages.map((image, index) => {
+                                                const imageUrl = getStrapiMedia(image);
+                                                if (!imageUrl) return null;
+
+                                                return (
+                                                    <SwiperSlide key={image.id || index}>
+                                                        <div style={{ position: 'relative', height: '60vh' }}>
+                                                            <Image
+                                                                style={{ objectFit: 'cover', width: '100%' }}
+                                                                className="img-fluid rounded w-100 startHomeImg"
+                                                                src={imageUrl}
+                                                                alt={image.alternativeText || `designo-${index + 1}`}
+                                                                fill
+                                                            />
+                                                        </div>
+                                                    </SwiperSlide>
+                                                );
+                                            })}
+                                        </Swiper>
+                                    ) : null}
                                 </div>
                                
                             </div>

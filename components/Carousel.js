@@ -12,12 +12,14 @@ const defaultProps = {};
 
 const Carousel = ({ banner, t }) => {
     // console.log('banner', banner)
+    // console.log('banner', banner)
     const title = banner && banner.length > 0 && banner[0].title ? banner[0].title : "DISEGNO";
     const image = banner && banner.length > 0 && banner[0].image ? banner[0].image : "DISEGNO";
     const subtitle = banner && banner.length > 0 && banner[0].subtitle ? banner[0].subtitle : "Φροντιστήριο Σχεδίου";
     const slide = banner && banner.length > 0 && banner[0].slides && banner[0].slides.length > 0 ? banner[0].slides[0] : null;
-    console.log('slide', slide)
     const mobileslide = banner && banner.length > 0 && banner[0].mobile_slides && banner[0].mobile_slides.length > 0 ? banner[0].mobile_slides[0] : null;
+    const slideUrl = getStrapiMedia(slide);
+    const mobileSlideUrl = getStrapiMedia(mobileslide) || slideUrl;
 
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
@@ -49,21 +51,25 @@ const Carousel = ({ banner, t }) => {
                 <div id="header-carousel" className="carousel slide carousel-fade" data-ride="carousel">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <Image
-                                style={{ objectFit: "cover", 'width': '100%' }}
-                                className="img-height-fluid img-fluid width100 hide549"
-                                src={`${process.env.NEXT_PUBLIC_API_URL}${slide.url}`}
-                                alt="designo"
-                                fill
-                            />
+                            {slideUrl ? (
+                                <Image
+                                    style={{ objectFit: "cover", 'width': '100%' }}
+                                    className="img-height-fluid img-fluid width100 hide549"
+                                    src={slideUrl}
+                                    alt="designo"
+                                    fill
+                                />
+                            ) : null}
 
-                            <Image
-                                style={{ objectFit: "cover", 'width': '100%' }}
-                                className="img-height-fluid img-fluid width100 show549"
-                                src={`${process.env.NEXT_PUBLIC_API_URL}${mobileslide.url}`}
-                                alt="designo"
-                                fill
-                            />
+                            {mobileSlideUrl ? (
+                                <Image
+                                    style={{ objectFit: "cover", 'width': '100%' }}
+                                    className="img-height-fluid img-fluid width100 show549"
+                                    src={mobileSlideUrl}
+                                    alt="designo"
+                                    fill
+                                />
+                            ) : null}
                             <div className="carousel-caption d-flex">
                                 <div className="p-5 carousel-text-container" style={{ width: '100%', maxWidth: '1200px' }}>
                                     <h1 ref={titleRef} className="text-white text-5xl font-bold flex gap-1">

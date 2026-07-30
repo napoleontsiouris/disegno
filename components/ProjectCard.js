@@ -50,7 +50,7 @@ const ProjectCard = ({inlineClass, project}) => {
                             <Link className="text-decoration-none" href={`/projects/${project.id}`}>
                                 <h3>{project.title}</h3>
                             </Link>
-                            <p className="mt-3 mb-4">{preview}</p>
+                            <p className="mt-3 mb-4">{stripHtml(project.intro)}</p>
                             <Link href={`/projects/${project.id}`} className="btn btn-primary">
                                 Περισσότερα &rarr;
                             </Link>

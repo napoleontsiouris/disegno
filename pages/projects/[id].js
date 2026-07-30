@@ -9,11 +9,19 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetail = ({ section }) => {
+  console.log('section', section)
   if (!section) return null;
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const [photoIndex, setPhotoIndex] = useState(-1);
   const galleryImages = section.gallery || [];
+  const fileEntries = Array.isArray(section.file)
+    ? section.file.filter((entry) => entry?.file?.url)
+    : [];
+  const toMediaUrl = (url) => {
+    if (!url) return "";
+    return url.startsWith("http") ? url : `${API_URL}${url}`;
+  };
   const galleryRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +48,7 @@ const ProjectDetail = ({ section }) => {
       {section.image && (
         <PageHeader
           title={section.title}
-          image={`${API_URL}${section.image.url}`}
+          image={toMediaUrl(section.image.url)}
         />
       )}
 
@@ -76,7 +84,7 @@ const ProjectDetail = ({ section }) => {
                         onClick={() => setPhotoIndex(index)}
                       >
                         <Image
-                          src={`${API_URL}${image.url}`}
+                          src={toMediaUrl(image.url)}
                           alt={`${section.title} - ${index + 1}`}
                           fill
                           className="img-fluid rounded"
@@ -93,6 +101,55 @@ const ProjectDetail = ({ section }) => {
             )}
           </div>
 
+          {fileEntries.length > 0 && (
+            <div className="mb-3">
+              <h3 className="mb-4">Αρχεία PDF</h3>
+              <div className="row g-4">
+                {fileEntries.map((entry, index) => {
+                  const pdf = entry.file;
+                  const pdfUrl = toMediaUrl(pdf.url);
+                  return (
+                    <div key={entry.id || index} className="col-12 col-md-6 col-lg-4">
+                      <div className="border rounded p-3 h-100 bg-white d-flex flex-column">
+                        <div
+                          className="rounded mb-3 d-flex align-items-center justify-content-center"
+                          style={{ height: 180, background: "#f1f5f9", border: "1px solid #e2e8f0" }}
+                        >
+                          <img
+                            src="/img/pdf-icon.svg"
+                            alt="PDF"
+                            style={{ width: 72, height: 72 }}
+                          />
+                        </div>
+                        <h5 className="mb-2">{entry.title || pdf.name}</h5>
+                        <p className="text-muted mb-3" style={{ fontSize: 14 }}>
+                          {pdf.name}
+                        </p>
+                        <div className="mt-auto d-flex gap-2">
+                          <a
+                            href={pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary btn-sm"
+                          >
+                            Προβολή
+                          </a>
+                          <a
+                            href={pdfUrl}
+                            download
+                            className="btn btn-outline-secondary btn-sm"
+                          >
+                            Λήψη
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
 
@@ -106,7 +163,7 @@ const ProjectDetail = ({ section }) => {
           >&#8249;</button>
           <div className="custom-lightbox-img-wrap" onClick={(e) => e.stopPropagation()}>
             <img
-              src={`${API_URL}${galleryImages[photoIndex].url}`}
+              src={toMediaUrl(galleryImages[photoIndex].url)}
               alt={`${section.title} - ${photoIndex + 1}`}
               style={{ maxHeight: "90vh", maxWidth: "90vw", objectFit: "contain" }}
             />
@@ -145,9 +202,17 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { id } = params;
 
-  const sectionsRes = await fetchAPI(`/sections/`, {
-    filters: { id: id },
-    populate: ["image", "gallery", "section_categories"],
+  const sectionsRes = await fetchAPI("/sections", {
+    filters: { id: { $eq: id } },
+    populate: {
+      image: true,
+      gallery: true,
+      section_categories: true,
+      // file is a component, so nested media/relations need a second-level populate.
+      file: {
+        populate: "*",
+      },
+    },
   });
 
   const section = sectionsRes && sectionsRes.data ? sectionsRes.data[0] : null;

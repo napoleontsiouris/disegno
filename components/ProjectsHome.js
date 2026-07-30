@@ -37,34 +37,7 @@ const ProjectsHome = ( {sectionsPanellinies, sectionsNonPanellinies }) => {
                     }
                 </div>
 
-                <div className="row g-3">
-                {sectionsNonPanellinies.map((section, i) => {
-                    // console.log('section', section)
-                    return (
-                        <React.Fragment key={i}>
-                            {/* Text block */}
-                            <div className={`col-md-4 no-padding order-${section.orderText} order-md-${section.orderText_md}`} >
-                                <div className={`cell ${section.color}`} style={{backgroundColor: section.color ? section.color : '#444'}}>
-                                <h3>{section.title}</h3>
-                                <p>{section.description}</p>
-                                </div>
-                            </div>
-
-                            {/* Image block */}
-                            <div className={`col-md-4 no-padding order-${section.orderImage ? section.orderImage : 'last'} order-md-${section.orderImage_md ? section.orderImage_md: 'last'}`} >
-                                <div className="cell">
-                                <Image
-                                    src={`${process.env.NEXT_PUBLIC_API_URL}${section.image.url}`}
-                                    alt={section.title}
-                                    fill
-                                    className="img-fluid w-100 startHomeImg"
-                                />
-                                </div>
-                            </div>
-                        </React.Fragment>
-                    )
-                })}
-                </div>
+               
 
 
 
