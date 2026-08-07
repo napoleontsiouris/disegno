@@ -34,7 +34,15 @@ const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, fa
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
 
           <meta name="description" content={`Disegno`} />
-         
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Disegno" />
+          <meta property="og:title" content="Disegno" />
+          <meta property="og:description" content="Disegno" />
+          <meta property="og:url" content="https://www.disegno-artlab.gr" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Disegno" />
+          <meta name="twitter:description" content="Disegno" />
+          <link rel="canonical" href="https://www.disegno-artlab.gr" />
 
         </Head>
         <Carousel banner={banner} />

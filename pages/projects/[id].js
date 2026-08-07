@@ -41,7 +41,57 @@ const ProjectDetail = ({ section }) => {
     <>
       <Head>
         <title>{section.title} | Disegno</title>
-        <meta name="description" content={section.title} />
+        <meta
+          name="description"
+          content={
+            section.description
+              ? section.description.replace(/<[^>]+>/g, "").slice(0, 160)
+              : section.title
+          }
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Disegno" />
+        <meta property="og:title" content={`${section.title} | Disegno`} />
+        <meta
+          property="og:description"
+          content={
+            section.description
+              ? section.description.replace(/<[^>]+>/g, "").slice(0, 160)
+              : section.title
+          }
+        />
+        {section.image && (
+          <meta
+            property="og:image"
+            content={
+              section.image.url.startsWith("http")
+                ? section.image.url
+                : `${process.env.NEXT_PUBLIC_API_URL}${section.image.url}`
+            }
+          />
+        )}
+        <meta property="og:url" content={`https://www.disegno-artlab.gr/projects/${section.id}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${section.title} | Disegno`} />
+        <meta
+          name="twitter:description"
+          content={
+            section.description
+              ? section.description.replace(/<[^>]+>/g, "").slice(0, 160)
+              : section.title
+          }
+        />
+        {section.image && (
+          <meta
+            name="twitter:image"
+            content={
+              section.image.url.startsWith("http")
+                ? section.image.url
+                : `${process.env.NEXT_PUBLIC_API_URL}${section.image.url}`
+            }
+          />
+        )}
+        <link rel="canonical" href={`https://disegno.ovh/projects/${section.id}`} />
       </Head>
 
       {/* Page Header */}
