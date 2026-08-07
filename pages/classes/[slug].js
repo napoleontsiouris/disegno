@@ -70,7 +70,7 @@ const ProjectDetail = ({ section }) => {
             }
           />
         )}
-        <meta property="og:url" content={`https://www.disegno-artlab.gr/projects/${section.id}`} />
+        <meta property="og:url" content={`https://disegno.ovh/classes/${section.slug}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${section.title} | Disegno`} />
         <meta
@@ -91,7 +91,7 @@ const ProjectDetail = ({ section }) => {
             }
           />
         )}
-        <link rel="canonical" href={`https://disegno.ovh/projects/${section.id}`} />
+        <link rel="canonical" href={`https://disegno.ovh/classes/${section.slug}`} />
       </Head>
 
       {/* Page Header */}
@@ -233,13 +233,13 @@ const ProjectDetail = ({ section }) => {
 
 export async function getStaticPaths() {
   const sectionsRes = await fetchAPI("/sections", {
-    fields: ["id"],
+    fields: ["slug"],
   });
 
   const paths =
     sectionsRes && sectionsRes.data
       ? sectionsRes.data.map((section) => ({
-          params: { id: String(section.id) },
+          params: { slug: section.slug },
         }))
       : [];
 
@@ -250,10 +250,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { id } = params;
+  const { slug } = params;
 
   const sectionsRes = await fetchAPI("/sections", {
-    filters: { id: { $eq: id } },
+    filters: { slug: { $eq: slug } },
     populate: {
       image: true,
       gallery: true,

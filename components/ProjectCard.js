@@ -47,11 +47,11 @@ const ProjectCard = ({inlineClass, project}) => {
                     </div>
                     <div ref={contentRef} className="col-xs-12 col-md-5 col-lg-5 col-xl-5 align-self-center">
                         <div className="blog-content rounded-bottom p-4">
-                            <Link className="text-decoration-none" href={`/projects/${project.id}`}>
+                            <Link className="text-decoration-none" href={`/classes/${project.slug}`}>
                                 <h3>{project.title}</h3>
                             </Link>
                             <p className="mt-3 mb-4">{stripHtml(project.intro)}</p>
-                            <Link href={`/projects/${project.id}`} className="btn btn-primary">
+                            <Link href={`/classes/${project.slug}`} className="btn btn-primary">
                                 Περισσότερα &rarr;
                             </Link>
                         </div>
