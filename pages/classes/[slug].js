@@ -90,7 +90,7 @@ const ProjectDetail = ({ section }) => {
           {/* Description + Gallery */}
           <div className="row g-5 align-items-start mb-5">
             {section.description && (
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div
                   className="project-description"
                   dangerouslySetInnerHTML={{ __html: section.description }}
@@ -99,10 +99,10 @@ const ProjectDetail = ({ section }) => {
             )}
 
             {galleryImages.length > 0 && (
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div ref={galleryRef} className="row g-3">
                   {galleryImages.map((image, index) => (
-                    <div key={index} className="col-6">
+                    <div key={index} className="col-md-3 col-sm-6 col-12">
                       <div
                         className="position-relative lightbox-thumb"
                         style={{ height: 200, cursor: "pointer" }}

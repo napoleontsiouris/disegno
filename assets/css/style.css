@@ -898,12 +898,16 @@ img.pdf-icon {
 
   .navbar.navbar-expand-lg .navbar-toggler {
     /* padding: 15px 15px; */
-    border: 1px solid #ffffff;
+    /* border: 1px solid #ffffff; */
     color: #ffffff;
     /* background: #ffffff; */
     border-radius: 50%;
     width: 64px;
     height: 60px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
   }
 
   .navbar-light .navbar-toggler-icon {
