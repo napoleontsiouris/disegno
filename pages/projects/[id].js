@@ -8,6 +8,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://disegno.gr";
+
+const stripHtml = (value = "") => value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const truncate = (value = "", maxLength = 160) =>
+  value.length > maxLength ? `${value.slice(0, maxLength - 1).trim()}…` : value;
+
 const ProjectDetail = ({ section }) => {
   console.log('section', section)
   if (!section) return null;
@@ -23,6 +29,10 @@ const ProjectDetail = ({ section }) => {
     return url.startsWith("http") ? url : `${API_URL}${url}`;
   };
   const galleryRef = useRef(null);
+  const pageUrl = `${SITE_URL}/projects/${section.id}`;
+  const pageTitle = `${section.title} | Disegno`;
+  const plainDescription = truncate(stripHtml(section.description || section.title), 160);
+  const socialImage = section.image?.url ? toMediaUrl(section.image.url) : `${SITE_URL}/logo.jpg`;
 
   useEffect(() => {
     if (galleryRef.current) {
@@ -40,8 +50,23 @@ const ProjectDetail = ({ section }) => {
   return (
     <>
       <Head>
-        <title>{section.title} | Disegno</title>
-        <meta name="description" content={section.title} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={plainDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={pageUrl} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Disegno" />
+        <meta property="og:locale" content="el_GR" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={plainDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={socialImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={plainDescription} />
+        <meta name="twitter:image" content={socialImage} />
       </Head>
 
       {/* Page Header */}

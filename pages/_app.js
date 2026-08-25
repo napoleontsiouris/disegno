@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import Head from "next/head"
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'leaflet/dist/leaflet.css';
 import "../assets/css/bootstrap.css"
 import "../assets/css/style.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';

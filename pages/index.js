@@ -14,6 +14,10 @@ import { fetchAPI } from "../lib/api";
 import Space from "../components/Space";
 import Contact from "../components/Contact";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://disegno-artlab.gr";
+const HOME_TITLE = "Disegno | Φροντιστήριο Σχεδίου";
+const HOME_DESCRIPTION = "Μαθήματα σχεδίου για πανελλήνιες και ελεύθερο σχέδιο στην Αμαλιάδα. Επικοινωνήστε με το Disegno για πληροφορίες και εγγραφές.";
+
 
 
 
@@ -27,15 +31,30 @@ const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, fa
       <div>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Disegno</title>
+          <title>{HOME_TITLE}</title>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
 
-          <meta name="description" content={`Disegno`} />
-         
+          <meta name="description" content={HOME_DESCRIPTION} />
+          <meta name="robots" content="index, follow" />
+          <link rel="canonical" href={`${SITE_URL}/`} />
 
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Disegno" />
+          <meta property="og:locale" content="el_GR" />
+          <meta property="og:title" content={HOME_TITLE} />
+          <meta property="og:description" content={HOME_DESCRIPTION} />
+          <meta property="og:url" content={`${SITE_URL}/`} />
+          <meta property="og:image" content={`${SITE_URL}/logo.jpg`} />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={HOME_TITLE} />
+          <meta name="twitter:description" content={HOME_DESCRIPTION} />
+          <meta name="twitter:image" content={`${SITE_URL}/logo.jpg`} />
+
+          <link rel="alternate" hrefLang="el" href={`${SITE_URL}/`} />
+          <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
         </Head>
         <Carousel banner={banner} />
         {/* <InfoHome /> */}
