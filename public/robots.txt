@@ -1,1 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://disegno-artlab.gr/sitemap.xml
 

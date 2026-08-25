@@ -208,13 +208,13 @@ const ProjectDetail = ({ section }) => {
 
 export async function getStaticPaths() {
   const sectionsRes = await fetchAPI("/sections", {
-    fields: ["id"],
+    fields: ["slug"],
   });
 
   const paths =
     sectionsRes && sectionsRes.data
       ? sectionsRes.data.map((section) => ({
-          params: { id: String(section.id) },
+          params: { slug: section.slug },
         }))
       : [];
 
@@ -225,10 +225,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { id } = params;
+  const { slug } = params;
 
   const sectionsRes = await fetchAPI("/sections", {
-    filters: { id: { $eq: id } },
+    filters: { slug: { $eq: slug } },
     populate: {
       image: true,
       gallery: true,

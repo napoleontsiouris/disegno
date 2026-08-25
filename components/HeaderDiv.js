@@ -96,9 +96,9 @@ const HeaderDiv = ({ t }) => {
                                                             {t('Αρχική')}
                                                         </a>
                                                     </Link>
-                                                    <Link legacyBehavior href={'#profile'}>
+                                                    <Link legacyBehavior href={'/#profile'}>
                                                         <a 
-                                                            className={`nav-item nav-link ${router.route == '#profile' ? 'current' : ''}`}
+                                                            className={`nav-item nav-link ${router.route == '/#profile' ? 'current' : ''}`}
                                                             onClick={closeNavbar} // Close menu on click
                                                         >
                                                             {t('Προφίλ')}
@@ -114,18 +114,18 @@ const HeaderDiv = ({ t }) => {
                                                         </a>
                                                     </Link>
 
-                                                    <Link legacyBehavior href={'#xwros'}>
+                                                    <Link legacyBehavior href={'/#xwros'}>
                                                         <a 
-                                                            className={`nav-item nav-link ${router.route == '#xwros' ? 'current' : ''}`}
+                                                            className={`nav-item nav-link ${router.route == '/#xwros' ? 'current' : ''}`}
                                                             onClick={closeNavbar} // Close menu on click
                                                         >
                                                             {t('Χώρος')}
                                                         </a>
                                                     </Link>
 
-                                                    <Link legacyBehavior href={'#contact'}>
+                                                    <Link legacyBehavior href={'/#contact'}>
                                                         <a 
-                                                            className={`nav-item nav-link ${router.route == '#contact' ? 'current' : ''}`}
+                                                            className={`nav-item nav-link ${router.route == '/#contact' ? 'current' : ''}`}
                                                             onClick={closeNavbar} // Close menu on click
                                                         >
                                                             {t('Επικοινωνία')}
