@@ -18,7 +18,7 @@ const Contact = ({contact}) => {
                                     <div className='col-md-6'>
                                         <div className='contact-info'>
                                             <h6>DISEGNO</h6>
-                                            <h1>Επικοινωνία</h1>
+                                            <h2>Επικοινωνία</h2>
                                             <p>Είμαστε εδώ για να σας βοηθήσουμε με οποιεσδήποτε ερωτήσεις ή πληροφορίες χρειάζεστε σχετικά με τα μαθήματά μας.</p>
                                             <div className='contact-info-right'>
                                                 <ul>

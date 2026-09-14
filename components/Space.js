@@ -12,7 +12,7 @@ export default function Space({facility}) {
     <div id="xwros" style={{overflowX: 'hidden'}} className="container-fluid blog">
         <div className="container text-center pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px', visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }} >
             <h4 className="text-uppercase text-primary">{facility.overtitle}</h4>
-            <h1 className="display-3  mb-3">{facility.title}</h1>
+            <h2 className="display-3  mb-3">{facility.title}</h2>
 
         </div>
         <div className="row g-4 justify-content-center">
@@ -40,7 +40,7 @@ export default function Space({facility}) {
                             <img
                                 src={`${process.env.NEXT_PUBLIC_API_URL}${photo.url}`}
                                 className="img-fluid w-100"
-                                alt={`slide ${index + 1}`}
+                                alt={photo.alternativeText || `Χώρος Disegno ${index + 1}`}
                             />
                         </SwiperSlide>
                     ))} 

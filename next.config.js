@@ -5,11 +5,8 @@
 const { i18n } = require('./next-i18next.config')
 
 module.exports = {
-  
-  i18n: {
-    locales: [ 'el'], // Replace with your supported locales
-    defaultLocale: 'el',  
-  },
+
+  i18n,
   images: {
     loader: "default",
     domains: ["localhost", 'disegno.ovh'],

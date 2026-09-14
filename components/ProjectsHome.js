@@ -22,7 +22,7 @@ const ProjectsHome = ( {sectionsPanellinies, sectionsNonPanellinies }) => {
 
                 <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px', visibility: 'visible', animationDelay: '0.2s', animationName: 'fadeInUp' }} >
 
-                    <h1 className="display-3  mb-3">Τμήματα</h1>
+                    <h2 className="display-3  mb-3">Τμήματα</h2>
                 </div>
                 <div className="row g-4 justify-content-center" >
                     {

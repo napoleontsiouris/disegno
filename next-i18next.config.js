@@ -2,9 +2,9 @@ const path = require('path')
 
 module.exports = {
   i18n: {
-  
-    locales: ['el','sq'],
-    defaultLocale: 'sq',
+
+    locales: ['el'],
+    defaultLocale: 'el',
     localeDetection: false,
     // domains: [
     //   {

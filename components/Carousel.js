@@ -56,7 +56,7 @@ const Carousel = ({ banner, t }) => {
                                     style={{ objectFit: "cover", 'width': '100%' }}
                                     className="img-height-fluid img-fluid width100 hide549"
                                     src={slideUrl}
-                                    alt="designo"
+                                    alt={title ? `${title} - ${subtitle}` : "Disegno φροντιστήριο σχεδίου"}
                                     fill
                                 />
                             ) : null}
@@ -66,7 +66,7 @@ const Carousel = ({ banner, t }) => {
                                     style={{ objectFit: "cover", 'width': '100%' }}
                                     className="img-height-fluid img-fluid width100 show549"
                                     src={mobileSlideUrl}
-                                    alt="designo"
+                                    alt={title ? `${title} - ${subtitle}` : "Disegno φροντιστήριο σχεδίου"}
                                     fill
                                 />
                             ) : null}

@@ -1,15 +1,9 @@
 import React from "react"
 
-import { useTranslation } from 'next-i18next';
-import { withTranslation } from "next-i18next"
-import {serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
 import Head from "next/head";
 import Carousel from "../components/Carousel";
 import AboutHome from "../components/AboutHome";
 import ProjectsHome from "../components/ProjectsHome";
-import StartHome from "../components/StartHome";
-import NewProjectHome from "../components/NewProjectHome";
 import { fetchAPI } from "../lib/api";
 import Space from "../components/Space";
 import Contact from "../components/Contact";
