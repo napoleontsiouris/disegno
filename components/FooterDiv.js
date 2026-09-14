@@ -11,7 +11,7 @@ export default function FooterDiv(props) {
                 <div className="row">
                     
                     <div className="col-lg-12 text-center text-md-center">
-                        <p className="m-0 text-white">{new Date().getFullYear()}&copy; disegno.gr. All Rights Reserved.</p>
+                        <p className="m-0 text-white">{new Date().getFullYear()}&copy; disegno-artlab.gr. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>

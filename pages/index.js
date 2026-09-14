@@ -14,7 +14,7 @@ import { fetchAPI } from "../lib/api";
 import Space from "../components/Space";
 import Contact from "../components/Contact";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://disegno-artlab.gr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.disegno-artlab.gr";
 const HOME_TITLE = "Disegno | Φροντιστήριο Σχεδίου";
 const HOME_DESCRIPTION = "Μαθήματα σχεδίου για πανελλήνιες και ελεύθερο σχέδιο στην Αμαλιάδα. Επικοινωνήστε με το Disegno για πληροφορίες και εγγραφές.";
 

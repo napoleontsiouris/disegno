@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://disegno.gr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.disegno-artlab.gr";
 
 const stripHtml = (value = "") => value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 const truncate = (value = "", maxLength = 160) =>

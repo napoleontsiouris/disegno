@@ -21,7 +21,7 @@ const Gallery = ({ photos }) => {
         700: 1,
     };
 
-	const imageUrls = photos && photos.data && photos.data.length &&  photos.data.map(photo => `https://disegno.dervitsani.ovh${photo.attributes.url}`);
+	const imageUrls = photos && photos.data && photos.data.length &&  photos.data.map(photo => `https://disegno.ovh${photo.attributes.url}`);
 	// console.log('imageUrls', imageUrls)
 
 
@@ -31,7 +31,7 @@ const Gallery = ({ photos }) => {
                 {photos.data.map((photo, i) => (
                     <img
                         key={`photo${i}`}
-                        src={`https://disegno.dervitsani.ovh${photo.attributes.formats.small.url}`}
+                        src={`https://disegno.ovh${photo.attributes.formats.small.url}`}
                         alt={`Gallery Image ${i}`}
                         className="w-full mb-4 rounded-lg shadow-md"
 						onClick={() => {
