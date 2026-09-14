@@ -15,7 +15,6 @@ const truncate = (value = "", maxLength = 160) =>
   value.length > maxLength ? `${value.slice(0, maxLength - 1).trim()}…` : value;
 
 const ProjectDetail = ({ section }) => {
-  console.log('section', section)
   if (!section) return null;
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -29,10 +28,25 @@ const ProjectDetail = ({ section }) => {
     return url.startsWith("http") ? url : `${API_URL}${url}`;
   };
   const galleryRef = useRef(null);
-  const pageUrl = `${SITE_URL}/projects/${section.id}`;
+  const pageUrl = `${SITE_URL}/classes/${section.slug}`;
   const pageTitle = `${section.title} | Disegno`;
   const plainDescription = truncate(stripHtml(section.description || section.title), 160);
   const socialImage = section.image?.url ? toMediaUrl(section.image.url) : `${SITE_URL}/logo.jpg`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: section.title,
+    description: plainDescription,
+    provider: {
+      "@type": "Organization",
+      name: "Disegno",
+      url: SITE_URL,
+    },
+    url: pageUrl,
+    image: socialImage,
+    inLanguage: "el-GR",
+    educationalLevel: "Secondary",
+  };
 
   useEffect(() => {
     if (galleryRef.current) {
@@ -62,11 +76,20 @@ const ProjectDetail = ({ section }) => {
         <meta property="og:description" content={plainDescription} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={socialImage} />
+        <meta property="og:image:alt" content={section.title} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={plainDescription} />
         <meta name="twitter:image" content={socialImage} />
+        <meta name="twitter:image:alt" content={section.title} />
+
+        <link rel="alternate" hrefLang="el" href={pageUrl} />
+        <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
 
       {/* Page Header */}

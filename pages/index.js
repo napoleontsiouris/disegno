@@ -9,8 +9,8 @@ import Space from "../components/Space";
 import Contact from "../components/Contact";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.disegno-artlab.gr";
-const HOME_TITLE = "Disegno | Φροντιστήριο Σχεδίου";
-const HOME_DESCRIPTION = "Μαθήματα σχεδίου για πανελλήνιες και ελεύθερο σχέδιο στην Αμαλιάδα. Επικοινωνήστε με το Disegno για πληροφορίες και εγγραφές.";
+const HOME_TITLE = "Disegno | Καλών Τεχνών στην Αμαλιάδα";
+const HOME_DESCRIPTION = "Μαθήματα καλών τεχνών στην Αμαλιάδα από το Disegno: προετοιμασία για πανελλήνιες, ελεύθερο και γραμμικό σχέδιο. Επικοινωνήστε για πληροφορίες και εγγραφές.";
 
 
 
@@ -19,6 +19,25 @@ const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, fa
   // console.log('sectionsNonPanellinies', sectionsNonPanellinies)
   // console.log('project_current', project_current)
   //('products', products)
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ArtSchool",
+    name: "Disegno",
+    url: `${SITE_URL}/`,
+    image: `${SITE_URL}/logo.jpg`,
+    telephone: "+30 2622 021494",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Κουρογιαννοπούλου 37",
+      addressLocality: "Αμαλιάδα",
+      addressCountry: "GR",
+    },
+    areaServed: "Αμαλιάδα",
+    sameAs: [
+      "https://facebook.com/profile.php?id=61576663653850",
+      "https://instagram.com/disegno_frontistirio_sxediou",
+    ],
+  };
   
   return (
     <>
@@ -49,8 +68,18 @@ const Home = ({ banner, profile, sectionsPanellinies, sectionsNonPanellinies, fa
 
           <link rel="alternate" hrefLang="el" href={`${SITE_URL}/`} />
           <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          />
         </Head>
         <Carousel banner={banner} />
+        <div className="container py-4 text-center d-none" aria-hidden="true">
+          <p className="mb-0">
+            Το Disegno προσφέρει μαθήματα καλών τεχνών στην Αμαλιάδα με έμφαση στη σωστή προετοιμασία,
+            τη δημιουργικότητα και την τεχνική εξέλιξη κάθε μαθητή.
+          </p>
+        </div>
         {/* <InfoHome /> */}
         <AboutHome profile={profile} />
         {/* <PortfolioHome projects={projects} /> */}
