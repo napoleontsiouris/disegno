@@ -9,8 +9,8 @@ import Space from "../components/Space";
 import Contact from "../components/Contact";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.disegno-artlab.gr";
-const HOME_TITLE = "Disegno | Καλών Τεχνών στην Αμαλιάδα";
-const HOME_DESCRIPTION = "Μαθήματα καλών τεχνών στην Αμαλιάδα από το Disegno: προετοιμασία για πανελλήνιες, ελεύθερο και γραμμικό σχέδιο. Επικοινωνήστε για πληροφορίες και εγγραφές.";
+const HOME_TITLE = "Disegno | Φροντιστήριο Σχεδίου στην Αμαλιάδα Ηλείας";
+const HOME_DESCRIPTION = "Μαθήματα καλών τεχνών στην Αμαλιάδα Ηλείας από το Disegno: προετοιμασία για πανελλήνιες, ελεύθερο και γραμμικό σχέδιο. Επικοινωνήστε για πληροφορίες και εγγραφές.";
 
 
 
